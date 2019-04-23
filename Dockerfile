@@ -22,9 +22,11 @@ RUN wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.stor
 && ln -fs /opt/chromedriver-$CHROME_DRIVER_VERSION /usr/bin/chromedriver
 
 # Google Cloud SDK
+
 RUN wget --no-verbose -O /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-230.0.0-linux-x86_64.tar.gz \
 && tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/ \
 && /tmp/google-cloud-sdk/install.sh -q \
+&& apt-get install -qqy install source \
 && source /tmp/google-cloud-sdk/path.bash.inc \
 && gcloud components install app-engine-java
 

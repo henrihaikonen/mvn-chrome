@@ -31,6 +31,7 @@ RUN wget --no-verbose -O /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/c
 && source /tmp/google-cloud-sdk/path.bash.inc \
 && gcloud components install app-engine-java
 
+ENV PATH="/tmp/google-cloud-sdk/bin:${PATH}"
 
 WORKDIR /usr/src/app
 
